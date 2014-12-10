@@ -31,7 +31,7 @@ CTxMemPool mempool;
 unsigned int nTransactionsUpdated = 0;
 
 map<uint256, CBlockIndex*> mapBlockIndex;
-uint256 hashGenesisBlock("0xb1f3774cca8775cdef0cf392f4628078a7972e60fb0fc15dccc3c47c36602524");
+uint256 hashGenesisBlock("0x00000bdfe9003c3eef694e82b9c4284d5e3ca1caa6609ac84dc97e91cc0775ed");
 static CBigNum bnProofOfWorkLimit(~uint256(0) >> 20); // Pennypincher: starting difficulty is 1 / 2^12
 CBlockIndex* pindexGenesisBlock = NULL;
 int nBestHeight = -1;
@@ -2722,7 +2722,7 @@ bool LoadBlockIndex()
         pchMessageStart[1] = 0xc1;
         pchMessageStart[2] = 0xb7;
         pchMessageStart[3] = 0xdc;
-        hashGenesisBlock = uint256("0xb1f3774cca8775cdef0cf392f4628078a7972e60fb0fc15dccc3c47c36602524");
+        hashGenesisBlock = uint256("0x00000bdfe9003c3eef694e82b9c4284d5e3ca1caa6609ac84dc97e91cc0775ed");
     }
 
     //
@@ -2747,15 +2747,15 @@ bool InitBlockIndex() {
 
     // Only add the genesis block if not reindexing (in which case we reuse the one already on disk)
     if (!fReindex) {
-        // Genesis Block:
-        // CBlock(hash=12a765e31ffd4059bada, PoW=0000050c34a64b415b6b, ver=1, hashPrevBlock=00000000000000000000, hashMerkleRoot=97ddfbbae6, nTime=1317972665, nBits=1e0ffff0, nNonce=2084524493, vtx=1)
-        //   CTransaction(hash=97ddfbbae6, ver=1, vin.size=1, vout.size=1, nLockTime=0)
-        //     CTxIn(COutPoint(0000000000, -1), coinbase 04ffff001d0104404e592054696d65732030352f4f63742f32303131205374657665204a6f62732c204170706c65e280997320566973696f6e6172792c2044696573206174203536)
-        //     CTxOut(nValue=50.00000000, scriptPubKey=040184710fa689ad5023690c80f3a4)
-        //   vMerkleTree: 97ddfbbae6
-
-        // Genesis block
-        const char* pszTimestamp = "Mtgox is down";
+	
+     //    Genesis Block:
+     //    CBlock(hash=12a765e31ffd4059bada, PoW=0000050c34a64b415b6b, ver=1, hashPrevBlock=00000000000000000000, hashMerkleRoot=97ddfbbae6, nTime=1418187601, nBits=1e0ffff0, nNonce=2086158987, vtx=1);
+     //      CTransaction(hash=97ddfbbae6, ver=1, vin.size=1, vout.size=1, nLockTime=0);
+     //        CTxIn(COutPoint(0000000000, -1), coinbase 04ffff001d0104404e592054696d65732030352f4f63742f32303131205374657665204a6f62732c204170706c65e280997320566973696f6e6172792c2044696573206174203536);
+     //        CTxOut(nValue=50.00000000, scriptPubKey=040184710fa689ad5023690c80f3a4);
+     //      vMerkleTree: 97ddfbbae6;
+		   
+        const char* pszTimestamp = "XPP PennyPincher";
         CTransaction txNew;
         txNew.vin.resize(1);
         txNew.vout.resize(1);
@@ -2767,22 +2767,43 @@ bool InitBlockIndex() {
         block.hashPrevBlock = 0;
         block.hashMerkleRoot = block.BuildMerkleTree();
         block.nVersion = 1;
-        block.nTime    = 1415051220;
+        block.nTime    = 1418187601;
         block.nBits    = 0x1e0ffff0;
         block.nNonce   = 2086158987;
+	   //block.nNonce   = 0;
 
         if (fTestNet)
         {
-            block.nTime    = 1415051220;
+            block.nTime    = 1418187601;
             block.nNonce   = 2086158987;
+			//block.nNonce   = 2086158987;
         }
-
+// Uncomment to generate Genesis Blocked based on Above data Some code from Peershares source
+/*
+		txNew.vin[0].scriptSig = CScript() << 486604799 << CBigNum(9999) << vector<unsigned char>((const unsigned char*)pszTimestamp, (const unsigned char*)pszTimestamp + strlen(pszTimestamp));
+        CBigNum bnTarget;
+        bnTarget.SetCompact(block.nBits);
+        while (block.GetHash() > bnTarget.getuint256())
+        {
+            if (block.nNonce % 1048576 == 0)
+                printf("n=%dM hash=%s\n", block.nNonce / 1048576,
+                       block.GetHash().ToString().c_str());
+            block.nNonce++;
+        }
+        printf("PennyPincher Genesis Block Found:\n");
+        printf("genesis hash=%s\n", block.GetHash().ToString().c_str());
+        printf("merkle root=%s\n", block.hashMerkleRoot.ToString().c_str());
+        block.print();
+        printf("End PennyPincher Genesis Block\n");
+*/
+		
+	
         //// debug print
         uint256 hash = block.GetHash();
         printf("%s\n", hash.ToString().c_str());
         printf("%s\n", hashGenesisBlock.ToString().c_str());
         printf("%s\n", block.hashMerkleRoot.ToString().c_str());
-        assert(block.hashMerkleRoot == uint256("0xdf5d4cddc97c45da161f81032af08c18a6b7caecf0fb13d416108d61872cb618"));
+        assert(block.hashMerkleRoot == uint256("0x5c965473bcf4e20d335f1ca446046faf78621ecc1f1303aaaec8c483fef6f130"));
         block.print();
         assert(hash == hashGenesisBlock);
 
