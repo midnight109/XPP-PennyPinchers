@@ -1,6 +1,6 @@
 TEMPLATE = app
-TARGET = litecoin-qt
-macx:TARGET = "Litecoin-Qt"
+TARGET = PennyPinchers-Qt
+macx:TARGET = "PennyPinchers-Qt"
 VERSION = 0.8.6.2
 INCLUDEPATH += src src/json src/qt
 QT += network
@@ -318,7 +318,7 @@ SOURCES += src/qt/test/test_main.cpp \
 HEADERS += src/qt/test/uritests.h
 DEPENDPATH += src/qt/test
 QT += testlib
-TARGET = litecoin-qt_test
+TARGET = PennyPinchers-Qt_test
 DEFINES += BITCOIN_QT_TEST
   macx: CONFIG -= app_bundle
 }
