@@ -1,5 +1,5 @@
-2014/12/08-18:09:09.000404 4d88 Recovering log #3
-2014/12/08-18:09:09.000404 4d88 Level-0 table #5: started
-2014/12/08-18:09:09.000404 4d88 Level-0 table #5: 206 bytes OK
-2014/12/08-18:09:09.000404 4d88 Delete type=0 #3
-2014/12/08-18:09:09.000404 4d88 Delete type=3 #2
+2014/12/11-02:39:39.000679 fec Recovering log #9
+2014/12/11-02:39:39.000679 fec Level-0 table #11: started
+2014/12/11-02:39:39.000681 fec Level-0 table #11: 206 bytes OK
+2014/12/11-02:39:39.000686 fec Delete type=0 #9
+2014/12/11-02:39:39.000686 fec Delete type=3 #7

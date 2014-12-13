@@ -378,3 +378,93 @@
 2014-12-08 21:27:24 wallet.dat closed
 2014-12-08 21:27:24 DBFlush(true) ended               1ms
 2014-12-08 21:27:24 Shutdown : done
+2014-12-11 07:39:33 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2014-12-11 07:39:33 Pennypincher version v0.8.6.2-unk-beta (Dec 11 2014, 02:27:11)
+2014-12-11 07:39:33 Using OpenSSL version OpenSSL 1.0.1j 15 Oct 2014
+2014-12-11 07:39:33 Default data directory .
+2014-12-11 07:39:33 Using data directory .
+2014-12-11 07:39:33 Using at most 125 connections (2048 file descriptors available)
+2014-12-11 07:39:33 Using 8 threads for script verification
+2014-12-11 07:39:33 init message: Verifying wallet...
+2014-12-11 07:39:33 dbenv.open LogDir=.\database ErrorFile=.\db.log
+2014-12-11 07:39:33 Bound to [::]:11320
+2014-12-11 07:39:33 Bound to 0.0.0.0:11320
+2014-12-11 07:39:33 init message: Loading block index...
+2014-12-11 07:39:33 Opening LevelDB in .\blocks\index
+2014-12-11 07:39:33 Opened LevelDB successfully
+2014-12-11 07:39:33 Opening LevelDB in .\chainstate
+2014-12-11 07:39:33 Opened LevelDB successfully
+2014-12-11 07:39:33 LoadBlockIndexDB(): last block file = 0
+2014-12-11 07:39:33 LoadBlockIndexDB(): last block file info: CBlockFileInfo(blocks=1, size=237, heights=0...0, time=2014-11-03...2014-11-03)
+2014-12-11 07:39:33 LoadBlockIndexDB(): transaction index disabled
+2014-12-11 07:39:33 LoadBlockIndexDB(): hashBestChain=b1f3774cca8775cdef0cf392f4628078a7972e60fb0fc15dccc3c47c36602524  height=0 date=2014-11-03 21:47:00
+2014-12-11 07:39:33 Error: Incorrect or no genesis block found. Wrong datadir for network?
+2014-12-11 07:39:33 Shutdown : In progress...
+2014-12-11 07:39:33 StopNode()
+2014-12-11 07:39:33 Flushed 0 addresses to peers.dat  2ms
+2014-12-11 07:39:33 Committing 0 changed transactions to coin database...
+2014-12-11 07:39:33 Shutdown : done
+2014-12-11 07:39:43 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2014-12-11 07:39:43 Pennypincher version v0.8.6.2-unk-beta (Dec 11 2014, 02:27:11)
+2014-12-11 07:39:43 Using OpenSSL version OpenSSL 1.0.1j 15 Oct 2014
+2014-12-11 07:39:43 Default data directory .
+2014-12-11 07:39:43 Using data directory .
+2014-12-11 07:39:43 Using at most 125 connections (2048 file descriptors available)
+2014-12-11 07:39:43 Using 8 threads for script verification
+2014-12-11 07:39:43 init message: Verifying wallet...
+2014-12-11 07:39:43 dbenv.open LogDir=.\database ErrorFile=.\db.log
+2014-12-11 07:39:43 Bound to [::]:11320
+2014-12-11 07:39:43 Bound to 0.0.0.0:11320
+2014-12-11 07:39:43 init message: Loading block index...
+2014-12-11 07:39:43 Opening LevelDB in .\blocks\index
+2014-12-11 07:39:43 Opened LevelDB successfully
+2014-12-11 07:39:43 Opening LevelDB in .\chainstate
+2014-12-11 07:39:43 Opened LevelDB successfully
+2014-12-11 07:39:43 LoadBlockIndexDB(): last block file = 0
+2014-12-11 07:39:43 LoadBlockIndexDB(): last block file info: CBlockFileInfo(blocks=1, size=237, heights=0...0, time=2014-11-03...2014-11-03)
+2014-12-11 07:39:43 LoadBlockIndexDB(): transaction index disabled
+2014-12-11 07:39:43 LoadBlockIndexDB(): hashBestChain=b1f3774cca8775cdef0cf392f4628078a7972e60fb0fc15dccc3c47c36602524  height=0 date=2014-11-03 21:47:00
+2014-12-11 07:39:43 Error: Incorrect or no genesis block found. Wrong datadir for network?
+2014-12-11 07:39:43 Shutdown : In progress...
+2014-12-11 07:39:43 StopNode()
+2014-12-11 07:39:43 Flushed 0 addresses to peers.dat  2ms
+2014-12-11 07:39:43 Committing 0 changed transactions to coin database...
+2014-12-11 07:39:43 Shutdown : done
