@@ -31,7 +31,7 @@ CTxMemPool mempool;
 unsigned int nTransactionsUpdated = 0;
 
 map<uint256, CBlockIndex*> mapBlockIndex;
-uint256 hashGenesisBlock("0x144747200176910547e37f7350726917ed46691ad4c506bafc1d6d6e16a7cd42");
+uint256 hashGenesisBlock("0xb1f3774cca8775cdef0cf392f4628078a7972e60fb0fc15dccc3c47c36602524");
 static CBigNum bnProofOfWorkLimit(~uint256(0) >> 20); // Pennypincher: starting difficulty is 1 / 2^12
 CBlockIndex* pindexGenesisBlock = NULL;
 int nBestHeight = -1;
@@ -2755,7 +2755,7 @@ bool InitBlockIndex() {
         //   vMerkleTree: 97ddfbbae6
 
         // Genesis block
-        const char* pszTimestamp = "XPP PennyPincher";
+        const char* pszTimestamp = "Mtgox is down";
         CTransaction txNew;
         txNew.vin.resize(1);
         txNew.vout.resize(1);
@@ -2767,81 +2767,25 @@ bool InitBlockIndex() {
         block.hashPrevBlock = 0;
         block.hashMerkleRoot = block.BuildMerkleTree();
         block.nVersion = 1;
-        block.nTime    = 1418187601;
+        block.nTime    = 1415051220;
         block.nBits    = 0x1e0ffff0;
-        block.nNonce   = 2086667671;
+        block.nNonce   = 2086158987;
 
         if (fTestNet)
         {
-            block.nTime    = 1418187601;
+            block.nTime    = 1415051220;
             block.nNonce   = 2086158987;
         }
-/*		txNew.vin[0].scriptSig = CScript() << 486604799 << CBigNum(9999) << vector<unsigned char>((const unsigned char*)pszTimestamp, (const unsigned char*)pszTimestamp + strlen(pszTimestamp));
-        CBigNum bnTarget;
-        bnTarget.SetCompact(block.nBits);
-        while (block.GetHash() > bnTarget.getuint256())
-        {
-            if (block.nNonce % 1048576 == 0)
-                printf("n=%dM hash=%s\n", block.nNonce / 1048576,
-                       block.GetHash().ToString().c_str());
-            block.nNonce++;
-        }
-        printf("PennyPincher Genesis Block Found:\n");
-        printf("genesis hash=%s\n", block.GetHash().ToString().c_str());
-        printf("merkle root=%s\n", block.hashMerkleRoot.ToString().c_str());
-        block.print();
-        printf("End PennyPincher Genesis Block\n");
+
         //// debug print
         uint256 hash = block.GetHash();
         printf("%s\n", hash.ToString().c_str());
         printf("%s\n", hashGenesisBlock.ToString().c_str());
         printf("%s\n", block.hashMerkleRoot.ToString().c_str());
-        assert(block.hashMerkleRoot == uint256("0x5c965473bcf4e20d335f1ca446046faf78621ecc1f1303aaaec8c483fef6f130"));
+        assert(block.hashMerkleRoot == uint256("0xdf5d4cddc97c45da161f81032af08c18a6b7caecf0fb13d416108d61872cb618"));
         block.print();
         assert(hash == hashGenesisBlock);
 
-        if (true && block.GetHash() != hashGenesisBlock)
-        {
-            printf("Searching for genesis block...\n");
-            // This will figure out a valid hash and Nonce if you're
-            // creating a different genesis block:
-            uint256 hashTarget = CBigNum().SetCompact(block.nBits).getuint256();
-            uint256 thash;
-            char scratchpad[SCRYPT_SCRATCHPAD_SIZE];
- 
-            loop
-            {
-#if defined(USE_SSE2)
-                // Detection would work, but in cases where we KNOW it always has SSE2,
-                // it is faster to use directly than to use a function pointer or conditional.
-#if defined(_M_X64) || defined(__x86_64__) || defined(_M_AMD64) || (defined(MAC_OSX) && defined(__i386__))
-                // Always SSE2: x86_64 or Intel MacOS X
-                scrypt_1024_1_1_256_sp_sse2(BEGIN(block.nVersion), BEGIN(thash), scratchpad);
-#else
-                // Detect SSE2: 32bit x86 Linux or Windows
-                scrypt_1024_1_1_256_sp(BEGIN(block.nVersion), BEGIN(thash), scratchpad);
-#endif
-#else
-                // Generic scrypt
-                scrypt_1024_1_1_256_sp_generic(BEGIN(block.nVersion), BEGIN(thash), scratchpad);
-#endif
-                if (thash <= hashTarget)
-                    break;
-                if ((block.nNonce & 0xFFF) == 0)
-                {
-                    printf("nonce %08X: hash = %s (target = %s)\n", block.nNonce, thash.ToString().c_str(), hashTarget.ToString().c_str());
-                }
-                ++block.nNonce;
-                if (block.nNonce == 0)
-                {
-                    printf("NONCE WRAPPED, incrementing time\n");
-                    ++block.nTime;
-                }
-            }
-            printf("block.nTime = %u \n", block.nTime);
-            printf("block.nNonce = %u \n", block.nNonce);
-            printf("block.GetHash = %s\n", block.GetHash().ToString().c_str());
-        }*/
         // Start new block file
         try {
             unsigned int nBlockSize = ::GetSerializeSize(block, SER_DISK, CLIENT_VERSION);
